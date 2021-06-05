@@ -8,13 +8,17 @@ import { BoardComponent } from './components/board/board.component';
 import { CardComponent } from './components/card/card.component';
 import { BoardMakerComponent } from './pages/board-maker/board-maker.component';
 import {FormsModule} from '@angular/forms';
+import { BoardViewerComponent } from './pages/board-viewer/board-viewer.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
     CardComponent,
-    BoardMakerComponent
+    BoardMakerComponent,
+    BoardViewerComponent,
+    PageNotFoundComponent
   ],
     imports: [
         BrowserModule,

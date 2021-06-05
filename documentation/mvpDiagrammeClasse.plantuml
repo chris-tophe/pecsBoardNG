@@ -1,0 +1,74 @@
+@startuml Diagramme de classe
+
+interface PictoCollection {
+    +columns: number
+    +rows: number
+    +pictos: PictoCard[]
+}
+interface PictoCard {
+    +column: number
+    +row: number
+    +name: string
+    +pictoUrl: string
+}
+class BoardViewer{
+    -pictos : PictoCollection
+    +BoardViewer()
+}
+class BoardMaker{
+    -column: number
+    -row: number  
+    +pictoCollection :PictoCollection
+    +BoardMaker(pictoCollection :PictoCollection)
+    -fillPictoBoardAndNavigate(): void
+}
+class PictoSearch{
+    -searchText: string
+    -pictoUrlList: string[]
+    +pictoCard: PictoCard
+    +PictoSearch(pictoCard: PictoCard)
+    -searchPicto(): void
+    -selectPictoAndNavigate():void
+}
+
+class ArasaacApiService{
+    +searchPicto(text:string):Pictocard[]
+}
+interface PictoDesc {
+  schematic: boolean
+  sex: boolean
+  violence: boolean
+  aac: boolean
+  aacColor: boolean
+  skin: boolean
+  hair; boolean
+  downloads: number
+  categories: string[]
+  synsets: string[]
+  tags: string[]
+  _id: number
+  created: Date
+  lastUpdated: Date
+  keywords: Keyword[]
+}
+class BoardService{
+    +SaveBoard(pictoCollection: PictoCollection) : PictoCollection
+    +GetBoardById(id: int): PictoCollection
+}
+
+
+BoardViewer --> BoardMaker
+BoardViewer --o PictoCollection
+PictoCollection --o PictoCard
+BoardViewer --> PictoSearch
+BoardViewer --* BoardService
+
+BoardMaker -left-* PictoCollection
+BoardService -right-> PictoCollection
+
+PictoSearch --* ArasaacApiService
+PictoSearch --o PictoCard
+ArasaacApiService --* PictoDesc
+ArasaacApiService -left-> PictoCard
+
+@enduml

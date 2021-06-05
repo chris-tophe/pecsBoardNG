@@ -1,14 +1,13 @@
-<div>
-  <div>
-    <label>nb colone</label>
-    <input type="number" [(ngModel)]="collection.columns"/>
+<form class="col-3 mx-auto m-5">
+  <div class="form-group row">
+    <label class="col-6 col-form-label">Nombre de Colonnes</label>
+    <input class="col-6 form-control" type="number" [(ngModel)]="pictoCollection.columns" [ngModelOptions]="{standalone: true}" />
   </div>
-  <div>
-    <label>nb ligne</label>
-    <input type="number" [(ngModel)]="collection.rows" />
+  <div class="form-group row">
+    <label class="col-6 col-form-label">Nombre de Lignes</label>
+    <input class="col-6 form-control" type="number" [(ngModel)]="pictoCollection.rows" [ngModelOptions]="{standalone: true}" />
   </div>
-  <div>
-    <button (click)="generateCollection()">GO</button>
+  <div class="text-right">
+    <button class="btn btn-primary" (click)="generateCollection()">Créer Tableau</button>
   </div>
-</div>
-<app-board *ngIf="collection.pictos.length > 0" [collection]="collection"></app-board>
+</form>

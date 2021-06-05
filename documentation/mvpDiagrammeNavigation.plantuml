@@ -1,0 +1,10 @@
+@startuml Diagramme de Nagivation
+state "Page du tableau" as paTab
+state "Definition taille du tableau" as paSize
+state "Choix du PictoGramme" as paRech
+[*] --> paTab
+paTab --> paSize : Pas d'id de tableau
+paSize --> paTab : Taille définie
+paTab --> paRech : Clique sur\nune image
+paRech --> paTab : Clique sur\nvalidation image
+@enduml
