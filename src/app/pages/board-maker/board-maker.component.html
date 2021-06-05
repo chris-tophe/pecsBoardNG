@@ -1,0 +1,14 @@
+<div>
+  <div>
+    <label>nb colone</label>
+    <input type="number" [(ngModel)]="collection.columns"/>
+  </div>
+  <div>
+    <label>nb ligne</label>
+    <input type="number" [(ngModel)]="collection.rows" />
+  </div>
+  <div>
+    <button (click)="generateCollection()">GO</button>
+  </div>
+</div>
+<app-board *ngIf="collection.pictos.length > 0" [collection]="collection"></app-board>

@@ -1,0 +1,43 @@
+@startuml SequenceDuMVP
+
+actor User as u
+participant App as a
+participant Arasaac as s
+database BDD as b
+== Génération du tableau ==
+u -> a :définis le nombre de cases\nvia ligne et collone
+a -> u :génère un tableau\navec toutes les cases
+
+== Choix des pictogrammes ==
+u -> a :clique sur une des cases
+a -> u :affiche la recherche de\npictograme
+
+u -> a : lance la recherche
+a <-> s : effectue la recherche
+a <-> s : demande les images\ncorrespondantes
+a -> u : presente les images 
+u -> a : choisit l'image
+a -> a : met a jour le tableau
+a -> u : reviens a la presentation du tableau
+
+== Enregistrement du tableau ==
+
+u -> a : clique sur le bouton enregistrer
+a -> b : enregistre le tableau
+b -> a : retourne le numéro d'enregistrement
+a -> u : retourne l'url d'acces au tableau
+
+== Chargement du tableau ==
+
+u -> a : rentre l'url du tableau
+a <-> b : retourne le tableau
+a <-> s : charge les images
+a -> u : retourne le tableau
+
+== Impression du tableau ==
+
+u -> a :clique sur Imprimer
+a -> a : lance la fenetre\nd'impression du navigateur
+
+
+@enduml

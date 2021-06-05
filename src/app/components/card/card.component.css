@@ -1,0 +1,14 @@
+.square {
+  width: 100%;
+  padding: 100% 0 0 0 !important;
+}
+.square-center {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
