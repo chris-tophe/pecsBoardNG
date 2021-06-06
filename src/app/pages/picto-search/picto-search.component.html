@@ -1,0 +1,16 @@
+<div class="container" *ngIf="boardService.getSelectedPicto(); else noSelectedPicto">
+  <div class="row">
+    <p>Recherce de pictogramme pour le picto {{boardService.getSelectedPicto()?.column}} {{boardService.getSelectedPicto()?.row}}</p>
+  </div>
+  <div class="row" >
+    <input type="text" class="m-1 col-5 col-form-label" [(ngModel)]="searchText">
+    <button  class="m-1 col-2 btn btn-primary" (click)="searchPicto()">Chercher</button>
+  </div>
+  <div class="row cardRow mb-4">
+    <app-card *ngFor="let picto of searchResult|async" class="col-6" [pictoCard]="picto"></app-card>
+  </div>
+</div>
+<ng-template #noSelectedPicto>
+  Pas de Pictogramme definis pour la recherche
+  <a [routerLink]="['/']" class="btn btn-outline-info">Retour à la page d'acceuil</a>
+</ng-template>

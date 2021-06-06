@@ -5,20 +5,24 @@ import {PictoCard} from '../models/picto-card';
 import {map} from 'rxjs/operators';
 import {Observable, of} from 'rxjs';
 import {PictoCardFactory} from '../factory/picto-card-factory';
+import {element} from 'protractor';
+import {PictoSearchComponent} from '../pages/picto-search/picto-search.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArasaacApiService {
 
+  public searchResult: Observable<PictoCard[]>;
+
   constructor(private http: HttpClient) { }
 
-  searchPicto(text: string): Observable<PictoCard>{
+  searchPicto(text: string): Observable<PictoCard[]>{
     const url = 'https://api.arasaac.org/api/pictograms/fr/search/' + text;
-    let resp: PictoDesc;
-    this.http.get(url).pipe(
-      map((r: PictoDesc) => resp = r)
+    const resp = this.http.get(url).pipe(
+      map((r: PictoDesc[]) => r.map(value => PictoCardFactory.getFromArasaac(value) ))
     );
-    return of(PictoCardFactory.getFromArasaac(resp));
+    return resp;
+
   }
 }

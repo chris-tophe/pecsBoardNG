@@ -1,7 +1,7 @@
 <div class="container">
     <div *ngFor="let r of rows; let row = index" class="row cardRow mb-4">
       <app-card *ngFor="let c of columns; let column = index" class="col"
-                [pictoCard]="getPictoByPos(column,row)">
+                [pictoCard]="getPictoByPos(column,row)" (click)="navigateToSearch(column,row)">
       </app-card>
     </div>
 </div>

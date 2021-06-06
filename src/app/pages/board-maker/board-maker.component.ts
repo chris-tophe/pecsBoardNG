@@ -23,7 +23,7 @@ export class BoardMakerComponent implements OnInit {
   generateCollection(): void{
     for (let r = 0 ; r < this.pictoCollection.rows; r++) {
       for (let c = 0; c < this.pictoCollection.columns; c++) {
-        const p: PictoCard = {column: c, row: r, name: 'Vide'};
+        const p: PictoCard = {column: c, row: r, name: '', pictureUrl: ''};
         this.pictoCollection.pictos.push(p);
       }
       this.boardService.setPicoCollection(this.pictoCollection);

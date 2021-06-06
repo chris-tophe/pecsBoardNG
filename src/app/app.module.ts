@@ -10,6 +10,8 @@ import { BoardMakerComponent } from './pages/board-maker/board-maker.component';
 import {FormsModule} from '@angular/forms';
 import { BoardViewerComponent } from './pages/board-viewer/board-viewer.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PictoSearchComponent } from './pages/picto-search/picto-search.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     CardComponent,
     BoardMakerComponent,
     BoardViewerComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PictoSearchComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         NgbModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
