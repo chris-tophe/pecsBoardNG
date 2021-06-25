@@ -17,7 +17,7 @@ export class BoardMakerComponent implements OnInit {
   constructor(private boardService: BoardService , private router: Router) { }
 
   ngOnInit(): void {
-    this.pictoCollection = {columns: 0 , rows: 0 , pictos: []};
+    this.pictoCollection = new PictoCollection(0 , 0 , []);
   }
 
   generateCollection(): void{

@@ -7,7 +7,7 @@
     <button  class="m-1 col-2 btn btn-primary" (click)="searchPicto()">Chercher</button>
   </div>
   <div class="row cardRow mb-4">
-    <app-card *ngFor="let picto of searchResult|async" class="col-6" [pictoCard]="picto"></app-card>
+    <app-card *ngFor="let picto of searchResult|async" class="col-6" [pictoCard]="picto" (click)="clickPicto(picto)"></app-card>
   </div>
 </div>
 <ng-template #noSelectedPicto>

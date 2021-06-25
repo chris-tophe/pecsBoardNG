@@ -17,7 +17,7 @@ export class BoardComponent implements OnInit {
   rows: number[];
   columns: number[];
 
-  constructor(private boardService: BoardService,private router: Router) { }
+  constructor(private boardService: BoardService, private router: Router) { }
 
   ngOnInit(): void {
     this.rows = Array(this.pictoCollection.rows);
