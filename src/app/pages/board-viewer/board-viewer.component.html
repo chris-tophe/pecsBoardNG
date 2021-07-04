@@ -8,7 +8,7 @@
         <app-board [pictoCollection]="boardService.getPicoCollection()" ></app-board>
       </div>
       <div class="card-footer text-right">
-            <button class="btn btn-primary" type="submit">Sauver le tableau</button>
+            <button class="btn btn-primary" type="submit" (click)="saveJsonFile()">Sauver le tableau</button>
       </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ export class BoardService {
   }
 
   public getPicoCollection(): PictoCollection {
-    return this.pictoCollection;
+    return (this.pictoCollection) ? this.pictoCollection : null;
   }
 
   public setPicoCollection(pictoCollection: PictoCollection): void {

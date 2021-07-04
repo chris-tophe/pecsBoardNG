@@ -17,4 +17,8 @@ export class PictoCollection {
       && picto.row === pictoCard.row
     );
   }
+
+  isValid(): boolean{
+    return (this.rows * this.columns) === this.pictos.length;
+  }
 }

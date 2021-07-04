@@ -20,7 +20,7 @@ export class ArasaacApiService {
   searchPicto(text: string): Observable<PictoCard[]>{
     const url = 'https://api.arasaac.org/api/pictograms/fr/search/' + text;
     const resp = this.http.get(url).pipe(
-      map((r: PictoDesc[]) => r.map(value => PictoCardFactory.getFromArasaac(value) ))
+      map((r: PictoDesc[]) => r.map(value => PictoCardFactory.GetFromArasaac(value) ))
     );
     return resp;
 

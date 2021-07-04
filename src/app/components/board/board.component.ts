@@ -20,12 +20,12 @@ export class BoardComponent implements OnInit {
   constructor(private boardService: BoardService, private router: Router) { }
 
   ngOnInit(): void {
-    this.rows = Array(this.pictoCollection.rows);
-    this.columns = Array(this.pictoCollection.columns);
+    this.rows = Array(this.pictoCollection?.rows);
+    this.columns = Array(this.pictoCollection?.columns);
   }
 
   public getPictoByPos(column: number, row: number): PictoCard{
-    return this.pictoCollection.pictos.find(x => x.row === row && x.column === column);
+    return this.pictoCollection?.pictos.find(x => x.row === row && x.column === column);
   }
 
   public navigateToSearch(column: number, row: number): void {

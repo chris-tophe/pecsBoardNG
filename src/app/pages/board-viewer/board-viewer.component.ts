@@ -9,6 +9,8 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class BoardViewerComponent implements OnInit {
 
+  public element: HTMLAnchorElement;
+
   constructor(public boardService: BoardService, private router: Router) {
   }
 
@@ -16,6 +18,17 @@ export class BoardViewerComponent implements OnInit {
     if (!this.boardService.getPicoCollection()) {
       this.router.navigate(['/boardmaker']);
     }
+    this.element = document.createElement('a');
+  }
+  public saveJsonFile(): void{
+    const fileType = 'text/json';
+    const content  = JSON.stringify(this.boardService.getPicoCollection());
+    const filename = 'myBoard.pbd';
+    this.element.setAttribute('href',
+      `data:${fileType};charset=utf-8,${encodeURIComponent(content)}`);
+    this.element.setAttribute('download', filename);
+    const event = new MouseEvent('click');
+    this.element.dispatchEvent(event);
   }
 
 }

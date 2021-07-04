@@ -4,6 +4,7 @@ import {PictoCard} from '../../models/picto-card';
 import {Observable} from 'rxjs';
 import {BoardService} from '../../services/board.service';
 import {Router} from '@angular/router';
+import {PictoCollectionFactory} from '../../factory/picto-collection-factory';
 
 @Component({
   selector: 'app-board-maker',
@@ -17,7 +18,7 @@ export class BoardMakerComponent implements OnInit {
   constructor(private boardService: BoardService , private router: Router) { }
 
   ngOnInit(): void {
-    this.pictoCollection = new PictoCollection(0 , 0 , []);
+    this.pictoCollection = PictoCollectionFactory.GetEmptyPictoCollection();
   }
 
   generateCollection(): void{
@@ -26,10 +27,28 @@ export class BoardMakerComponent implements OnInit {
         const p: PictoCard = {column: c, row: r, name: '', pictureUrl: ''};
         this.pictoCollection.pictos.push(p);
       }
-      this.boardService.setPicoCollection(this.pictoCollection);
-      this.router.navigate(['/boardviewer']);
+      this.SetPictoCollectionAndNavigate(this.pictoCollection);
     }
   }
-
-
+  uploadCollection(event): void{
+    const file = event.target.files[0];
+    const fileReader = new FileReader();
+    fileReader.readAsText(file, 'UTF-8');
+    fileReader.onload = () => {
+      if (typeof fileReader.result === 'string') {
+        const pictoCollection = PictoCollectionFactory.GetPictoFromJson(JSON.parse(fileReader.result));
+        if (pictoCollection instanceof PictoCollection){
+          this.SetPictoCollectionAndNavigate(pictoCollection);
+        }
+        console.log(pictoCollection);
+      }
+    };
+    fileReader.onerror = (error) => {
+      console.log(error);
+    };
+  }
+  private SetPictoCollectionAndNavigate(pictoCollection: PictoCollection): void{
+    this.boardService.setPicoCollection(pictoCollection);
+    this.router.navigate(['/boardviewer']);
+  }
 }
