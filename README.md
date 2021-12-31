@@ -1,13 +1,11 @@
 # PecsBoard
 
-Ce projet à pour but de créer/sauvegarder/afficher un tableau de pictogramme pour décrire une suite d'action
-afin de réaliser une tache (exemple brosser les dents).
+Ce projet a pour but de créer / sauvegarder / afficher un tableau de pictogramme pour décrire une suite d'action afin de réaliser une tâche (exemple: brosser les dents).
+Ces tableaux pourront être imprimés.
 
-Ces tableau pourrons être imprimé.
+### MVP
 
-# MVP
-
-L'utilisateur peut choisir combien de pictogramme il souhaite créer dans son tableau
-il peut ensuite charger dans chacune de ce cases un pictogramme de la base de donnée arasaac
-ce tableau doit pouvoir être sauvegardé et rechargé via son id
-une impression via le navigateur doit tenir sur une feuille a4
+L'utilisateur peut choisir combien de pictogramme il souhaite créer dans son tableau.
+il peut ensuite charger dans chacune de cette case un pictogramme de la base de données arasaac.
+ce tableau doit pouvoir être sauvegardé et rechargé.
+une impression via le navigateur doit tenir sur une feuille a4.
