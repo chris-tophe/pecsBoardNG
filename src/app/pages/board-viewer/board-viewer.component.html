@@ -1,14 +1,15 @@
 <div class="container">
 
-    <div class="card">
-      <div class="card-header">
-        <div class="ti"> Tableau id:</div>
-      </div>
-      <div class="card-body">
-        <app-board [pictoCollection]="boardService.getPicoCollection()" ></app-board>
-      </div>
-      <div class="card-footer text-right">
-            <button class="btn btn-primary" type="submit" (click)="saveJsonFile()">Sauver le tableau</button>
-      </div>
+  <div class="card" #board>
+    <div class="card-header">
+      <div class="ti"> Tableau id:</div>
     </div>
+    <div class="card-body">
+      <app-board [pictoCollection]="boardService.getPicoCollection()"></app-board>
+    </div>
+    <div class="card-footer text-right">
+      <button class="btn btn-primary" type="submit" (click)="saveJsonFile()">Sauver le tableau</button>
+      <button class="btn btn-secondary ml-2" (click)="printBoard(board)">Imprimer</button>
+    </div>
+  </div>
 </div>
